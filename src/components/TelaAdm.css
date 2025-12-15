@@ -83,7 +83,7 @@
     color: #aaa;
 }
 
-/* BOTÕES - CORES DO BOOTSTRAP */
+
 .movie-info button {
     margin-top: 8px;
     border-radius: 20px;
@@ -93,7 +93,6 @@
     transition: all 0.2s ease;
 }
 
-/* Botão Success (Verde do Bootstrap) - NORMAL */
 .movie-info .btn-success,
 .movie-info .btn-success:focus,
 .movie-info .btn-success:active {
@@ -103,14 +102,13 @@
     box-shadow: none !important;
 }
 
-/* Botão Success - HOVER */
+
 .movie-info .btn-success:hover {
     background-color: #157347 !important;
     border-color: #146c43 !important;
     box-shadow: 0 4px 12px rgba(25, 135, 84, 0.4) !important;
 }
 
-/* Botão Danger (Vermelho do Bootstrap) - NORMAL */
 .movie-info .btn-danger,
 .movie-info .btn-danger:focus,
 .movie-info .btn-danger:active {
@@ -120,14 +118,14 @@
     box-shadow: none !important;
 }
 
-/* Botão Danger - HOVER */
+
 .movie-info .btn-danger:hover {
     background-color: #bb2d3b !important;
     border-color: #b02a37 !important;
     box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4) !important;
 }
 
-/* MODAL DARK */
+
 .modal-content {
     background-color: #1a1a1a ! important;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -141,7 +139,7 @@
 }
 
 .modal-header .btn-close {
-    filter: invert(1); /* Deixa o X branco */
+    filter: invert(1); 
 }
 
 .modal-title {
@@ -158,7 +156,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* FORM INPUTS DARK */
+
 .modal-body .form-label {
     color: #e0e0e0;
     font-weight: 500;
@@ -181,7 +179,6 @@
     color: #888;
 }
 
-/* CHECKBOXES DARK */
 .modal-body .form-check-label {
     color: #e0e0e0;
 }

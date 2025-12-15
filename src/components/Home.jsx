@@ -61,8 +61,24 @@ export default function Home({ user }) {
     setUserMovies(list || []);
   };
 
+  useEffect(() => {
+    if (error || successMessage) {
+      const timer = setTimeout(() => {
+        setError("");
+        setSuccessMessage("");
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [error, successMessage]);
+
   const handleAdicionar = async (movie) => {
-    await adicionarFilmeLista(user?.id, movie.id);
+    if (!user) {
+      setError("Você precisa estar logado para adicionar filmes à lista.");
+      return;
+    }
+
+    await adicionarFilmeLista(user.id, movie.id);
     setSuccessMessage(`${movie.titulo} adicionado!`);
     fetchUserMovies();
   };
@@ -86,14 +102,15 @@ export default function Home({ user }) {
       </Container>
     );
 
+
   return (
     <>
       <Carrossel />
 
       <Container className="home" style={{ fontFamily: 'Inter, sans-serif' }}>
 
-        {error && <Alert variant="danger">{error}</Alert>}
-        {successMessage && <Alert variant="success">{successMessage}</Alert>}
+        {error && <Alert dismissible variant="danger" onClose={() => setError("")}> {error}</Alert>}
+        {successMessage && <Alert dismissible variant="success" onClose={() => setSuccessMessage("")}>{successMessage}</Alert>}
 
         {/* LISTA DO USUÁRIO */}
         {user && userMovies.length > 0 && (

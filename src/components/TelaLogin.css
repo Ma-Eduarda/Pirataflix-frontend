@@ -46,15 +46,33 @@
 
 /* Botão principal */
 .botao-primario {
-    background: #880404;
-    border: none;
+    background: #880404 !important;
+    border: none !important;
     font-weight: 600;
     padding: 10px;
     border-radius: 8px;
+    color: #fff ! important;
+    box-shadow:  none !important;
 }
 
 .botao-primario:hover {
-    background: #bd0808;
+    background: #bd0808 !important;
+    color: #fff !important;
+}
+
+.botao-primario:active,
+.botao-primario:focus,
+.botao-primario:focus-visible {
+    background: #880404 !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.botao-primario:disabled {
+    background: #880404 !important;
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 /* Botão secundário */

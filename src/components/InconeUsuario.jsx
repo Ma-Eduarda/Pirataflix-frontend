@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const IconeUsuario = ({ name, bgColor = '#b60808ff', color = '#fff' }) => {
+const IconeUsuario = ({ name, bgColor = '#c70909ff', color = '#fff' }) => {
   const getFirstLetter = () => {
     if (!name || typeof name !== 'string' || name.trim() === '') {
       return 'Sem imagem!';

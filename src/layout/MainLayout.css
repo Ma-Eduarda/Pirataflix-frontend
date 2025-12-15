@@ -103,7 +103,7 @@ main {
     color: #ffffff !important;
 }
 
-/* focus / click */
+/* focus  */
 .btn-login:focus,
 .btn-login:focus-visible,
 .btn-login:active {

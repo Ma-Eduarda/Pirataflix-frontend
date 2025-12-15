@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { Button, Row } from "react-bootstrap";
@@ -74,6 +74,18 @@ function TelaLogin({ setUser }) {
             setMensagemSucesso("");
         }
     };
+    useEffect(() => {
+
+
+        if (mensagemErro || mensagemSucesso) {
+            const timer = setTimeout(() => {
+                setMensagemErro("");
+                setMensagemSucesso("");
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [mensagemErro, mensagemSucesso]);
 
     const validarEmail = (email) => {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -104,7 +116,6 @@ function TelaLogin({ setUser }) {
         ? nome.trim() !== "" && email.trim() !== "" && senha.trim() !== ""
         : email.trim() !== "" && senha.trim() !== "";
 
-
     const limparErro = (campo) => {
         setErrors((prev) => ({
             ...prev,
@@ -118,7 +129,7 @@ function TelaLogin({ setUser }) {
     };
 
     return (
-        
+
         <section className="login-container">
             <Form
                 className="card-login"
@@ -129,16 +140,16 @@ function TelaLogin({ setUser }) {
                 </h2>
 
                 {mensagemErro && (
-                    <Alert variant="danger">{mensagemErro}</Alert>
+                    <Alert variant="danger" dismissible onClose={() => setMensagemErro("")}>{mensagemErro}</Alert>
                 )}
 
                 {mensagemSucesso && (
-                    <Alert variant="success">{mensagemSucesso}</Alert>
+                    <Alert variant="success" dismissible onClose={() => setMensagemSucesso("")}> {mensagemSucesso}</Alert>
                 )}
 
                 {modoCadastro && (
                     <Form.Group className="mb-3">
-                        <Form.Label>Nome <span className="text-danger">*</span> </Form.Label>
+                        <Form.Label>Nome <span className="text-danger">*</span></Form.Label>
                         <Form.Control
                             type="text"
                             isInvalid={!!errors.nome}
